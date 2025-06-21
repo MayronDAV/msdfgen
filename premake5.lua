@@ -61,6 +61,8 @@ project "freetype"
 	defines
 	{
 		"FT2_BUILD_LIBRARY",
+		"HAVE_FCNTL_H",
+		"HAVE_UNISTD_H",
 		"_CRT_SECURE_NO_WARNINGS",
 		"_CRT_NONSTDC_NO_WARNINGS",
 	}
@@ -74,6 +76,7 @@ project "freetype"
 		}
 
 	filter "system:linux"
+		pic "on"
 		systemversion "latest"
 		files 
 		{ 
@@ -82,6 +85,7 @@ project "freetype"
 		}
 
 	filter "system:macosx"
+		pic "on"
 		systemversion "latest"
 		files 
 		{ 
@@ -115,6 +119,8 @@ project "msdfgen"
 
 	files
 	{
+		"msdfgen.h",
+		"msdfgen-ext.h",
 		"core/**.h",
 		"core/**.hpp",
 		"core/**.cpp",
@@ -127,6 +133,9 @@ project "msdfgen"
 
 	includedirs
 	{
+		".",
+		"core",
+		"ext",
 		"include",
 		"freetype/include"
 	}
@@ -145,6 +154,10 @@ project "msdfgen"
 	}
 
 	filter "system:windows"
+		systemversion "latest"
+
+	filter "system:linux"
+		pic "on"
 		systemversion "latest"
 
 	filter "configurations:Debug"
