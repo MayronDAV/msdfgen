@@ -70,8 +70,7 @@ project "freetype"
 		files 
 		{ 
 			"freetype/builds/windows/ftsystem.c",
-			"freetype/builds/windows/ftdebug.c",
-			"freetype/src/base/ftver.c",
+			"freetype/builds/windows/ftdebug.c"
 		}
 
 	filter "system:linux"
@@ -134,7 +133,10 @@ project "msdfgen"
 
 	defines
 	{
-		"MSDFGEN_USE_CPP11"
+		"MSDFGEN_USE_CPP11",
+		"MSDFGEN_USE_LODEPNG",
+		"MSDFGEN_USE_TINYXML2",
+		"MSDFGEN_PUBLIC="
 	}
 
 	links
